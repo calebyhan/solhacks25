@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Report Data</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
 </head>
 <body>
     <h1>Report Data</h1>
@@ -16,9 +19,8 @@
 
         <!-- Mapbox Location Selection -->
         <label for="location">Select Location:</label>
-        <div id="map" style="height: 400px;">
-            <script src="{{ url_for('static', filename='js/map.js') }}"></script>
-        </div>
+        <div id="map" style="height: 400px;"></div>
+        <script src="{{ url_for('static', filename='js/map.js') }}"></script>
         <input type="hidden" id="location" name="location" required>
 
         <br><br>
@@ -33,8 +35,5 @@
         <!-- Submit Button -->
         <button type="submit">Submit</button>
     </form>
-
-    <!-- Mapbox JS -->
-    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.0/mapbox-gl.js"></script>
 </body>
 </html>
