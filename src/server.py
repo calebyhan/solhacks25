@@ -7,8 +7,6 @@ app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = os.urandom(24)  # Secret key to sign the session cookie
 
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -16,6 +14,10 @@ def index():
 @app.route('/resources')
 def resources():
     return render_template('resources.html')
+
+@app.route('/icefreezone')
+def icefreezone():
+    return render_template('icefreezone.html')
 
 @app.route('/map')
 def map_view():
@@ -25,14 +27,6 @@ def map_view():
 def report():
     location = session.get('location', None)  # Retrieve location from session
     return render_template('report.html', location=location)
-
-@app.route('/resources')
-def resources():
-    return render_template('resources.html')
-
-@app.route('/icefreezone')
-def icefreezone():
-    return render_template('icefreezone.html')
 
 @app.route('/reportsuccess')
 def report_success():
