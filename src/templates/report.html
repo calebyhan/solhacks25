@@ -8,6 +8,14 @@
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
 </head>
+<nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('report') }}">Report</a></li>
+        <li><a href="{{ url_for('icefreezone') }}">icefreezone</a></li>
+        <li><a href="{{ url_for('resources') }}">resources</a></li>
+    </ul>
+</nav>
 <body>
     <h1>Report Data</h1>
     <form action="/submit" method="POST">

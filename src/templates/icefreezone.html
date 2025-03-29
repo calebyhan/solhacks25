@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource List</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('report') }}">Report</a></li>
+        <li><a href="{{ url_for('icefreezone') }}">icefreezone</a></li>
+        <li><a href="{{ url_for('resources') }}">resources</a></li>
+    </ul>
+</nav>
+<body>
+
+    <h1>Resources</h1>
+    <ul>
+        <a href="{{ url_for('report') }}">Go to Report</a>
+        <li><a href="https://www.example2.com" target="_blank">Example Resource 2</a></li>
+        <li><a href="https://www.example3.com" target="_blank">Example Resource 3</a></li>
+        <li><a href="https://www.example4.com" target="_blank">Example Resource 4</a></li>
+    </ul>
+
+</body>
+</html>

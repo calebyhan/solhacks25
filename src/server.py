@@ -6,6 +6,8 @@ import utils
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -14,6 +16,14 @@ def index():
 def report():
     location = session.get('location', None)
     return render_template('report.html', location=location)
+
+@app.route('/resources')
+def resources():
+    return render_template('resources.html')
+
+@app.route('/icefreezone')
+def icefreezone():
+    return render_template('icefreezone.html')
 
 @app.route('/submit', methods=['POST'])
 def submit():

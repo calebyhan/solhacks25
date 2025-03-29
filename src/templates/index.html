@@ -7,10 +7,29 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('report') }}">Report</a></li>
+            <li><a href="{{ url_for('icefreezone') }}">icefreezone</a></li>
+            <li><a href="{{ url_for('resources') }}">resources</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Welcome to Beacon</h1>
+    </header>
+
     <div class="container">
-        <p>a?</p>
-        <a href="{{ url_for('report') }}">Go to Report</a>
-        <a href="{{ url_for('resources') }}">Go to Resources</a>
+        <p>Explore our features and reports:</p>
+        <ul>
+            <li><a href="{{ url_for('report') }}">Go to Report</a></li>
+            <li><a href="{{ url_for('resources') }}">Explore Resources</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
     </div>
+
+    <footer>
+        <p>&copy; 2025 Beacon Inc. All rights reserved.</p>
+    </footer>
 </body>
 </html>
