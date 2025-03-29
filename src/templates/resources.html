@@ -6,7 +6,6 @@
 {% block content %}
     <h1>Welcome to the Beacon Application</h1>
     <p>This is the home page content.</p>
-    <nav>
-        <a href="{{ url_for('office_map_download') }}">Download map</a>
-    </nav>
+    <a href="{{ url_for('static', filename='images/eroFieldOffices.pdf') }}" download>Download map of ICE offices</a>
+    <iframe src="{{ url_for('static', filename='images/eroFieldOffices.pdf') }}" alt="test" style="width: 100%; height: 1200px;"></iframe>
 {% endblock %}

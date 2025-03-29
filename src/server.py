@@ -19,9 +19,6 @@ def index():
 def resources():
     return render_template('resources.html')
 
-@app.route('/map/download', endpoint='office_map_download')
-def office_map_download():
-    return render_template('office_map_download.html')
 
 @app.route('/icefreezone')
 def icefreezone():
