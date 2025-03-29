@@ -12,6 +12,14 @@ app.config['SECRET_KEY'] = os.urandom(24)  # Secret key to sign the session cook
 def index():
     return render_template('index.html')
 
+@app.route('/resources')
+def resources():
+    return render_template('resources.html')
+
+@app.route('/icefreezone')
+def icefreezone():
+    return render_template('icefreezone.html')
+
 @app.route('/map')
 def map_view():
     return render_template('map.html')
@@ -20,6 +28,14 @@ def map_view():
 def report():
     location = session.get('location', None)  # Retrieve location from session
     return render_template('report.html', location=location)
+
+@app.route('/reportsuccess')
+def report_success():
+    location = session.get('location', None)
+    if location:
+        # Clear the session after use
+        session.pop('location', None)
+    return render_template('reportsuccess.html', location=location)
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -34,7 +50,7 @@ def submit():
     # You can add the data to the utils here
     utils.add_data(utils.report(reportdate, location, details, status))
 
-    return redirect('/report')
+    return redirect('/reportsuccess')
 
 @app.route('/api', methods=['GET'])
 def api():

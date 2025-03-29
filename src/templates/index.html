@@ -1,15 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beacon</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Beacon Home{% endblock %}
+
+{% block content %}
+    <header>
+        <h1>Welcome to Beacon</h1>
+    </header>
+
     <div class="container">
-        <p>aaaaaaaaa</p>
-        <a href="{{ url_for('report') }}">Go to Report</a>
+        <p>Explore our features and reports:</p>
+        <ul>
+            <li><a href="{{ url_for('report') }}">Go to Report</a></li>
+            <li><a href="{{ url_for('resources') }}">Explore Resources</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
     </div>
-</body>
-</html>
+{% endblock %}

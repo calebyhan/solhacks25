@@ -11,8 +11,22 @@
     <script src="{{ url_for('static', filename='js/map.js') }}"></script>
 >>>>>>> d0ce20b8eff994af9d065ec36aab9f81b325d220
 </head>
+<nav>
+    <ul>
+        <li><a href="{{ url_for('index') }}">Home</a></li>
+        <li><a href="{{ url_for('report') }}">Report</a></li>
+        <li><a href="{{ url_for('icefreezone') }}">icefreezone</a></li>
+        <li><a href="{{ url_for('resources') }}">resources</a></li>
+    </ul>
+</nav>
 <body>
-    <h1>Report Data</h1>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;  /* Disable scrolling */
+        }
+    </style>
     <div class="report-container">
         <form action="/submit" method="POST">
 

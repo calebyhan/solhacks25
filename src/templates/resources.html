@@ -1,21 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resource List</title>
-    <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<!-- templates/index.html -->
+{% extends 'base.html' %}
 
-    <h1>Resources</h1>
-    <ul>
-        <a href="{{ url_for('report') }}">Go to Report</a>
-        <li><a href="https://www.example2.com" target="_blank">Example Resource 2</a></li>
-        <li><a href="https://www.example3.com" target="_blank">Example Resource 3</a></li>
-        <li><a href="https://www.ice.gov/doclib/about/offices/ero/pdf/eroFieldOffices.pdf" target="_blank">Ice field offices</a></li>
-    </ul>
+{% block title %}Resource Page{% endblock %}
 
-</body>
-</html>
+{% block content %}
+    <h1>Welcome to the Beacon Application</h1>
+    <p>This is the home page content.</p>
+{% endblock %}
