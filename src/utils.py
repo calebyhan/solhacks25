@@ -10,7 +10,7 @@ def dates() -> str:
     Returns:
         str: The current date and time.
     """
-    return datetime.now()
+    return datetime.now().strftime("%Y-%m-%d %H:%M")
 
 @dispatch(str)
 def dates(date: str) -> datetime:
@@ -23,7 +23,7 @@ def dates(date: str) -> datetime:
     Returns:
         datetime: The converted datetime object.
     """
-    return datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
+    return datetime.strptime(date, "%Y-%m-%d %H:%M")
 
 @dispatch(datetime)
 def dates(date: datetime) -> str:
@@ -36,9 +36,22 @@ def dates(date: datetime) -> str:
     Returns:
         str: The converted date string.
     """
-    return date.strftime("%Y-%m-%d %H:%M:%S")
+    return date.strftime("%Y-%m-%d %H:%M")
 
-def report(reportdate: str, location: float[2], details: str, tactics: str, verification: int, status: str) -> dict:
+def report_date(reportdate: str) -> datetime:
+    """
+    Converts a report date string to a datetime object.
+
+    Args:
+        reportdate (str): The report date string.
+
+    Returns:
+        datetime: The converted datetime object.
+    """
+    # format is 2025-03-29T12:05
+    return datetime.strptime(reportdate, "%Y-%m-%dT%H:%M")
+
+def report(reportdate: str, location: list[float, float], details: str, status: str) -> dict:
     """
     Generates a report dictionary.
 
@@ -54,11 +67,9 @@ def report(reportdate: str, location: float[2], details: str, tactics: str, veri
     """
     return {
         "date": dates(),
-        "report_date": dates(reportdate),
+        "report_date": dates(report_date(reportdate)),
         "location": "{}, {}".format(location[0], location[1]),
         "details": details,
-        "tactics": tactics,
-        "verification": verification,
         "status": status
     }
 
@@ -69,11 +80,15 @@ def add_data(data: dict) -> None:
     Args:
         data (dict): The data to add.
     """
-    with open('data.json', 'a') as f:
+    with open('data.json', 'r') as f:
         d = json.load(f)
-        d["n"] += 1
-        d["last_update"] = dates()
-        d["data"].append(data)
+    d["n"] += 1
+    print(dates())
+    d["last_update"] = dates()
+    d["data"].append(data)
+    print(d)
+    with open('data.json', 'w') as f:
+        json.dump(d, f, indent=4)
 
 def get_data(i: int, startDate: str, endDate: str) -> str:
     """

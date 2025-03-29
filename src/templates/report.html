@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Report Data</h1>
+    <form action="/submit" method="POST">
+        <label for="reportdate">Report Date:</label>
+        <input type="datetime-local" id="reportdate" name="reportdate" required>
+        
+        <br><br>
+
+        <label for="location">Location:</label>
+        <input type="" id="message" name="location" required></textarea>
+
+        <br><br>
+
+        <label for="details">Details:</label>
+        <br><br>
+        <textarea name="details" cols="40" rows="5"></textarea>
+
+        <br><br>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
