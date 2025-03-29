@@ -5,6 +5,9 @@ from datetime import datetime
 def dates() -> str:
     """
     Returns the current date and time in datetime format.
+
+    Returns:
+        str: The current date and time.
     """
     return datetime.now()
 
@@ -21,4 +24,26 @@ def dates(date: str) -> datetime:
     """
     return datetime.strptime(date, "%Y-%m-%d %H:%M:%S")
 
-print(dates("2025-03-29 10:56:36"))
+@dispatch(datetime)
+def dates(date: datetime) -> str:
+    """
+    Convert a datetime object to a string.
+    
+    Args:
+        date (datetime): The datetime object to convert.
+        
+    Returns:
+        str: The converted date string.
+    """
+    return date.strftime("%Y-%m-%d %H:%M:%S")
+
+def get_data(i: int, startDate: str, endDate: str) -> str:
+    """
+    Returns all api data in JSON format.
+
+    Returns:
+        str: The JSON data.
+    """
+    with open('data.json', 'r') as f:
+        data = f.read()
+    return data
