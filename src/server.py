@@ -1,12 +1,15 @@
 from flask import Flask, render_template, jsonify, redirect, request, session
 import os
+from dotenv import load_dotenv
 
 import utils
 
 load_dotenv()
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SECRET_KEY'] = os.urandom(24)  # Secret key to sign the session cookie
+app.config['SECRET_KEY'] = os.urandom(24)
+
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '..', '.env'))
 
 @app.route('/')
 def index():
@@ -26,14 +29,14 @@ def map_view():
 
 @app.route('/report')
 def report():
-    location = session.get('location', None)  # Retrieve location from session
-    return render_template('report.html', location=location)
+    location = session.get('location', None)
+    mapbox_secret = os.getenv('MAPBOX_SECRET')
+    return render_template('report.html', location=location, mapbox_secret=mapbox_secret)
 
 @app.route('/reportsuccess')
 def report_success():
     location = session.get('location', None)
     if location:
-        # Clear the session after use
         session.pop('location', None)
     return render_template('reportsuccess.html', location=location)
 
@@ -44,10 +47,8 @@ def submit():
     details = request.form.get('details')
     status = "open"
 
-    # Store location in session
     session['location'] = location
 
-    # You can add the data to the utils here
     utils.add_data(utils.report(reportdate, location, details, status))
 
     return redirect('/reportsuccess')
