@@ -1,11 +1,10 @@
 from flask import Flask, render_template, jsonify, redirect, request, session
-from dotenv import load_dotenv
 import os
 
 import utils
 
 load_dotenv()
-app = Flask(__name__, template_folder="templates")
+app = Flask(__name__)
 app.config['DEBUG'] = True
 
 @app.route('/')
@@ -15,8 +14,7 @@ def index():
 @app.route('/report')
 def report():
     location = session.get('location', None)
-    mapbox_token = os.getenv('MAPBOX_ACCESS_TOKEN')
-    return render_template('report.html', location=location, mapbox_token=mapbox_token)
+    return render_template('report.html', location=location)
 
 @app.route('/submit', methods=['POST'])
 def submit():
