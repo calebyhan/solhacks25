@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Map</title>
+    <title>Report Data</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
@@ -10,6 +10,19 @@
     <script src="{{ url_for('static', filename='js/map.js') }}"></script>
 </head>
 <body>
-
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;  /* Disable scrolling */
+        }
+    </style>
+    <div class="report-container">
+        <div id="step-1" class="step report-step">
+            <h1>Report Submitted Successfully</h1>
+            <br><br>
+            <a href="{{ url_for('index') }}">Go to Home</a>
+        </div>
+    </div>
 </body>
 </html>
