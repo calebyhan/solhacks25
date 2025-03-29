@@ -1,6 +1,10 @@
-from flask import Flask, render_template, jsonify, redirect, request
+from flask import Flask, render_template, jsonify, redirect, request, session
+from dotenv import load_dotenv
+import os
+
 import utils
 
+load_dotenv()
 app = Flask(__name__)
 app.config['DEBUG'] = True
 
@@ -10,7 +14,9 @@ def index():
 
 @app.route('/report')
 def report():
-    return render_template('report.html')
+    location = session.get('location', None)
+    mapbox_token = os.getenv('MAPBOX_ACCESS_TOKEN')
+    return render_template('report.html', location=location, mapbox_token=mapbox_token)
 
 @app.route('/submit', methods=['POST'])
 def submit():
@@ -19,7 +25,7 @@ def submit():
     details = request.form.get('details')
     status = "open"
 
-    print(reportdate, location, details, status)
+    session['location'] = location
 
     utils.add_data(utils.report(reportdate, location, details, status))
 
