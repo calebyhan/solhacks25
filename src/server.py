@@ -5,7 +5,7 @@ import os
 import utils
 
 load_dotenv()
-app = Flask(__name__)
+app = Flask(__name__, template_folder="templates")
 app.config['DEBUG'] = True
 
 @app.route('/')
@@ -49,3 +49,7 @@ def data():
     result = utils.get_data(i, startDate, endDate)
     
     return jsonify(result)
+
+
+if __name__ == "__main__":
+    app.run()
