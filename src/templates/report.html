@@ -16,6 +16,9 @@
 
         <!-- Mapbox Location Selection -->
         <label for="location">Select Location:</label>
+        <div id="map" style="height: 400px;">
+            <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+        </div>
         <input type="hidden" id="location" name="location" required>
 
         <br><br>
@@ -31,40 +34,7 @@
         <button type="submit">Submit</button>
     </form>
 
-    <!-- Map for Location Selection -->
-    <div id="map" style="height: 400px;"></div>
-
     <!-- Mapbox JS -->
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.0/mapbox-gl.js"></script>
-    <script>
-        // Set Mapbox access token
-        mapboxgl.accessToken = "{{ mapbox_token }}"; // Get the Mapbox access token dynamically from Flask
-
-        // Initialize the map
-        var map = new mapboxgl.Map({
-            container: 'map', // ID of the map container
-            style: 'mapbox://styles/mapbox/streets-v11', // Map style
-            center: [0, 0], // Default coordinates (Longitude, Latitude)
-            zoom: 2 // Default zoom level
-        });
-
-        // Create a draggable marker
-        var marker = new mapboxgl.Marker({ draggable: true })
-            .setLngLat([0, 0]) // Set default location (Longitude, Latitude)
-            .addTo(map);
-
-        // When the marker is dragged, update the hidden location field with the coordinates
-        marker.on('dragend', function() {
-            var lngLat = marker.getLngLat();
-            document.getElementById("location").value = lngLat.lat + ", " + lngLat.lng;
-        });
-
-        // Optionally, add a click event listener to the map to place the marker where the user clicks
-        map.on('click', function(e) {
-            var lngLat = e.lngLat;
-            marker.setLngLat(lngLat);
-            document.getElementById("location").value = lngLat.lat + ", " + lngLat.lng;
-        });
-    </script>
 </body>
 </html>
