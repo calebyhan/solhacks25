@@ -1,35 +1,7 @@
 {
-    "n": 6,
+    "n": 4,
     "last_update": "2025-03-29 16:05",
     "data": [
-        {
-            "date": "2025-03-29 12:18",
-            "report_date": "0003-01-02 01:02",
-            "location": "1.0, 1.0",
-            "details": "a",
-            "status": "open"
-        },
-        {
-            "date": "2025-03-29 12:20",
-            "report_date": "0003-01-02 01:02",
-            "location": "2.0, 2.0",
-            "details": "a",
-            "status": "open"
-        },
-        {
-            "date": "2025-03-29 12:22",
-            "report_date": "0003-01-02 01:02",
-            "location": "3.0, 3.0",
-            "details": "a",
-            "status": "open"
-        },
-        {
-            "date": "2025-03-29 12:24",
-            "report_date": "0003-01-02 01:02",
-            "location": "4.0, 4.0",
-            "details": "a",
-            "status": "open"
-        },
         {
             "date": "2025-03-29 15:32",
             "report_date": "0003-01-02 01:02",

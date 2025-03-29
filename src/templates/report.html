@@ -5,7 +5,6 @@
 {% block additional_requirements %}
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
-    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
 {% endblock %}
 
 {% block content %}
@@ -13,9 +12,10 @@
         html, body {
             height: 100%;
             margin: 0;
-            overflow: hidden;  /* Disable scrolling */
+            overflow: hidden;
         }
     </style>
+
     <div class="report-container">
         <form action="/submit" method="POST">
 

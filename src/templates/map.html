@@ -5,9 +5,113 @@
 {% block additional_requirements %}
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
-    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
 {% endblock %}
 
 {% block content %}
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Adjust the map to take full screen below the navbar */
+        #map {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 100px); /* Subtract the height of your navbar here */
+        }
+
+        /* Add styles to ensure the navbar stays on top */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            z-index: 10;
+        }
+    </style>
+
     <div id="map"></div>
+    <input type="hidden" id="location" name="location" required>
+
+    <script>
+        const mapboxSecret = "{{ mapbox_secret }}";
+        mapboxgl.accessToken = mapboxSecret;
+
+        async function fetchData() {
+            try {
+                const response = await fetch('/api/data');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch data');
+                }
+                var dataPoints = await response.json();
+                return await dataPoints.data;
+            } catch (error) {
+                console.error('Error fetching data:', error);
+                return [];
+            }
+        }
+
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(success, error);
+            } else {
+                error();
+            }
+        }
+
+        function success(position) {
+            const longitude = position.coords.longitude;
+            const latitude = position.coords.latitude;
+
+            initMap(latitude, longitude, true);
+        }
+
+        function error(err) {
+            console.warn("ERROR(" + (err ? err.code : "N/A") + "): " + (err ? err.message : "Geolocation not supported"));
+
+            const longitude = -79.04808;
+            const latitude = 35.91123;
+
+            initMap(latitude, longitude, false);
+        }
+
+        async function initMap(lat, lng, showDot) {
+            document.getElementById("location").value = `${lat}, ${lng}`;
+
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/streets-v11',
+                center: [lng, lat],
+                zoom: 14
+            });
+
+            map.on('load', async () => {
+                map.resize();
+
+                if (showDot) {
+                    new mapboxgl.Marker({
+                        color: "#FF0000"
+                    })
+                    .setLngLat([lng, lat])
+                    .setPopup(new mapboxgl.Popup().setText("Your Location"))
+                    .addTo(map);
+                }
+
+                dataPoints = await fetchData();
+                dataPoints.forEach(point => {
+                    pointLng = point.location.split(", ")[1];
+                    pointLat = point.location.split(", ")[0];
+                    new mapboxgl.Marker({ color: "#0074D9" })
+                        .setLngLat([pointLng, pointLat])
+                        .setPopup(new mapboxgl.Popup().setText(point.details))
+                        .addTo(map);
+                });
+            });
+        }
+
+        getLocation();
+    </script>
 {% endblock %}

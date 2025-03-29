@@ -48,7 +48,6 @@ def report_date(reportdate: str) -> datetime:
     Returns:
         datetime: The converted datetime object.
     """
-    # format is 2025-03-29T12:05
     return datetime.strptime(reportdate, "%Y-%m-%dT%H:%M")
 
 def report(reportdate: str, location: list[float, float], details: str, status: str) -> dict:

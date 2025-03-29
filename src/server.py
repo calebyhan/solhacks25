@@ -25,7 +25,9 @@ def icefreezone():
 
 @app.route('/map')
 def map_view():
-    return render_template('map.html')
+    mapbox_secret = os.getenv('MAPBOX_SECRET')
+    location = session.get('location', None)
+    return render_template('map.html', location=location, mapbox_secret=mapbox_secret)
 
 @app.route('/report')
 def report():
