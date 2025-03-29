@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Report Data</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% extends 'base.html' %}
+
+{% block title %}Report Submitted Successfully{% endblock %}
+
+{% block additional_requirements %}
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
     <script src="{{ url_for('static', filename='js/map.js') }}"></script>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
     <style>
         html, body {
             height: 100%;
@@ -24,5 +23,4 @@
             <a href="{{ url_for('index') }}">Go to Home</a>
         </div>
     </div>
-</body>
-</html>
+{% endblock %}

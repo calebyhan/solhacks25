@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Map</title>
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+{% extends 'base.html' %}
+
+{% block title %}Map{% endblock %}
+
+{% block additional_requirements %}
     <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
     <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
     <script src="{{ url_for('static', filename='js/map.js') }}"></script>
-</head>
-<body>
+{% endblock %}
 
-</body>
-</html>
+{% block content %}
+    <div id="map"></div>
+{% endblock %}

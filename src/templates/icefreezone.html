@@ -1,9 +1,25 @@
 <!-- templates/index.html -->
 {% extends 'base.html' %}
 
-{% block title %}Home Page{% endblock %}
+{% block title %}Ice-Free Zone Locator{% endblock %}
+
+
+{% block additional_requirements %}
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% endblock %}
 
 {% block content %}
-    <h1>Welcome to the Beacon Application</h1>
-    <p>This is the home page content.</p>
+<div id='map' style='width: 400px; height: 300px;'></div>
+<script>
+// TO MAKE THE MAP APPEAR YOU MUST
+// ADD YOUR ACCESS TOKEN FROM
+// https://account.mapbox.com
+mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
+const map = new mapboxgl.Map({
+	container: 'map', // container ID
+	style: 'mapbox://styles/mapbox/streets-v12', // style URL
+	center: [-74.5, 40], // starting position [lng, lat]
+	zoom: 9, // starting zoom
+});
+</script>
 {% endblock %}
