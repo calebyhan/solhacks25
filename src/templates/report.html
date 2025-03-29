@@ -4,27 +4,48 @@
     <meta charset="UTF-8">
     <title>Report Data</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+<<<<<<< HEAD
+=======
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.10.0/mapbox-gl.js"></script>
+    <script src="{{ url_for('static', filename='js/map.js') }}"></script>
+>>>>>>> d0ce20b8eff994af9d065ec36aab9f81b325d220
 </head>
 <body>
     <h1>Report Data</h1>
-    <form action="/submit" method="POST">
-        <!-- Report Date Input -->
-        <label for="reportdate">Report Date:</label>
-        <input type="datetime-local" id="reportdate" name="reportdate" required>
-        
-        <br><br>
+    <div class="report-container">
+        <form action="/submit" method="POST">
 
+<<<<<<< HEAD
         <!-- Mapbox Location Selection -->
         <label for="location">Select Location:</label>
         <input type="hidden" id="location" name="location" required>
+=======
+            <div id="step-1" class="step report-step">
+                <label for="reportdate">Report Date:</label>
+                <input type="datetime-local" id="reportdate" name="reportdate" required>
+                <br><br>
+                <button type="button" onclick="nextStep(1)">Next</button>
+            </div>
+>>>>>>> d0ce20b8eff994af9d065ec36aab9f81b325d220
 
-        <br><br>
+            <div id="step-2" class="step report-step" style="display: none;">
+                <label for="location">Select Location:</label>
+                <div id="map" style="height: 400px;"></div>
+                <input type="hidden" id="location" name="location" required>
+                <br><br>
+                <button type="button" onclick="nextStep(2)">Next</button>
+            </div>
 
-        <!-- Details Input -->
-        <label for="details">Details:</label>
-        <br><br>
-        <textarea name="details" cols="40" rows="5"></textarea>
+            <div id="step-3" class="step report-step" style="display: none;">
+                <label for="details">Details:</label>
+                <br><br>
+                <textarea name="details" cols="40" rows="5" required></textarea>
+                <br><br>
+                <button type="submit">Submit</button>
+            </div>
 
+<<<<<<< HEAD
         <br><br>
 
         <!-- Submit Button -->
@@ -66,5 +87,9 @@
             document.getElementById("location").value = lngLat.lat + ", " + lngLat.lng;
         });
     </script>
+=======
+        </form>
+    </div>
+>>>>>>> d0ce20b8eff994af9d065ec36aab9f81b325d220
 </body>
 </html>

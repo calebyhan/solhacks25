@@ -6,14 +6,19 @@ import utils
 load_dotenv()
 app = Flask(__name__)
 app.config['DEBUG'] = True
+app.config['SECRET_KEY'] = os.urandom(24)  # Secret key to sign the session cookie
 
 @app.route('/')
 def index():
     return render_template('index.html')
 
+@app.route('/map')
+def map_view():
+    return render_template('map.html')
+
 @app.route('/report')
 def report():
-    location = session.get('location', None)
+    location = session.get('location', None)  # Retrieve location from session
     return render_template('report.html', location=location)
 
 @app.route('/submit', methods=['POST'])
@@ -23,8 +28,10 @@ def submit():
     details = request.form.get('details')
     status = "open"
 
+    # Store location in session
     session['location'] = location
 
+    # You can add the data to the utils here
     utils.add_data(utils.report(reportdate, location, details, status))
 
     return redirect('/report')
@@ -47,6 +54,9 @@ def data():
     result = utils.get_data(i, startDate, endDate)
     
     return jsonify(result)
+
+if __name__ == '__main__':
+    app.run()
 
 
 if __name__ == "__main__":
