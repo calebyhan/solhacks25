@@ -83,7 +83,6 @@ def add_data(data: dict) -> None:
     with open('data.json', 'r') as f:
         d = json.load(f)
     d["n"] += 1
-    print(dates())
     d["last_update"] = dates()
     d["data"].append(data)
     print(d)
