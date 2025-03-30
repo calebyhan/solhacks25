@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}<li><a href="{{ url_for('index') }}">Beacon</a></li>{% endblock %}</title>
+    <style>
+        :root {
+            --background-image: url("{{ url_for('static', filename='images/home_image.jpg') }}"); /* Default image */
+        }
+        body {
+            background-image: var(--background-image);
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh; 
+            margin: 0;
+        }
+    </style>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     {% block additional_requirements %}{% endblock %}
 </head>

@@ -3,6 +3,15 @@
 {% block title %}About Us{% endblock %}
 
 {% block content %}
+<head>
+    <style>
+        /* Override the default background image on this page */
+        :root {
+            --background-image: url("{{ url_for('static', filename='images/about_us.jpg') }}");
+        }
+    </style>
+</head>
+
 	<div class="title">
 		<p>About Us</p>
 	</div>
