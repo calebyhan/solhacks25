@@ -39,9 +39,8 @@ body {
 }
 
 .title {
-    display: inline-block; /* Box fits the text size */
     background-color: #F7C988;
-    margin: 20px;
+    margin: 20px auto; /* Center horizontally */
     padding: 20px 40px; /* Padding around the text */
     font-size: 48px;
     color: white;
@@ -49,6 +48,10 @@ body {
     text-shadow: #333 1px 1px 2px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    
+    /* Center the div and text */
+    width: 90%;
+    text-align: center;
 }
 
 
