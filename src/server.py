@@ -1,10 +1,12 @@
 from flask import Flask, render_template, jsonify, redirect, request, session
 import os
+import openai
 from dotenv import load_dotenv
 
 import utils
 
 load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 app = Flask(__name__)
 app.config['DEBUG'] = True
 app.config['SECRET_KEY'] = os.urandom(24)

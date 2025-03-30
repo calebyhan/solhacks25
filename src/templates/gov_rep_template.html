@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact a Represantative{% endblock %}
+
+
+{% block additional_requirements %}
+{% endblock %}
+
+{% block content %}
+<div class="container mx-auto p-8">
+	<h1 class="text-3xl mb-4">AI Chatbot</h1>
+	<div id="chat-container" class="border border-gray-300 p-4 rounded-lg">
+		<div id="messages" class="mb-4"></div>
+		<input type="text" id="user-input" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Type a message..." />
+		<button id="send-btn" class="bg-blue-500 text-white p-2 mt-2 rounded-lg">Send</button>
+	</div>
+</div>
+
+<script src="{{ url_for('static', filename='js/chatbot.js') }}"></script> <!-- Include JS -->
+{% endblock %}
