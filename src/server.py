@@ -24,6 +24,10 @@ def resources():
 def icefreezone():
     return render_template('icefreezone.html')
 
+@app.route('/gov_rep_template')
+def gov_rep_template():
+    return render_template('gov_rep_template.html')
+
 @app.route('/map')
 def map_view():
     mapbox_secret = os.getenv('MAPBOX_SECRET')
