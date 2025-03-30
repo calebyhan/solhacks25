@@ -4,17 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}<li><a href="{{ url_for('index') }}">Beacon</a></li>{% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='tailwind_styles.css') }}">
     {% block additional_requirements %}{% endblock %}
 </head>
 <body>
     <nav class="navbar">
-<<<<<<< HEAD
-        <div class="logo">☀ Beacon</div>
+        <div class="logo">
+            <a href="{{ url_for('index') }}">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" class="logo-image">
+            </a>
+        </div>
         <ul class="nav-links">
-=======
-        <ul>
->>>>>>> 3d91c901e393a55f0fbebf74ec93b7ef2d8466f1
             <li><a href="{{ url_for('index') }}">Home</a></li>
             <li><a href="{{ url_for('report') }}">Report</a></li>
             <li><a href="{{ url_for('icefreezone') }}">Ice-Free Zones</a></li>
