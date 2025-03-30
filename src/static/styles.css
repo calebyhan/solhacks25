@@ -11,6 +11,8 @@ body {
   color: #333;
 }
 
+
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -34,6 +36,12 @@ body {
 }
 
 .nav-links a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+.resource-boxes {
   text-decoration: none;
   color: white;
   font-size: 20px;
@@ -132,15 +140,26 @@ body {
 
 /* about us */
 
-.about-container {
+.resources-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-template-columns: repeat(1, 1fr); /* 2 columns */
     grid-template-rows: repeat(2, auto);  /* 2 rows */
-    gap: 20px; /* Space between grid items */
+    gap: 40px; /* Space between grid items */
     margin: 0 auto;
-    padding: 20px;
-    max-width: 1200px; /* Limit the grid width */
+    padding: 40px;
+    max-width: 480px; /* Limit the grid width */
     opacity: 1;
+}
+
+.about-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns */
+  grid-template-rows: repeat(2, auto);  /* 2 rows */
+  gap: 20px; /* Space between grid items */
+  margin: 0 auto;
+  padding: 20px;
+  max-width: 1200px; /* Limit the grid width */
+  opacity: 1;
 }
 
 /* Consistent content styling */
@@ -164,4 +183,61 @@ body {
   
     background: rgba(247, 201, 136, 0.9);
     
+}
+
+/* Styling for the sidebar */
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  padding-top: 20px;
+  z-index: 1000;
+}
+
+/* Styling the main categories */
+.menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.menu ul li {
+  padding: 10px;
+  border-bottom: 1px solid #444;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  display: block;
+  padding: 10px;
+  transition: background-color 0.3s;
+}
+
+/* Hover effect for main links */
+.menu ul li a:hover {
+  background-color: #555;
+}
+
+/* Styling for the inlaid (submenu) list */
+.submenu {
+  display: none;  /* Initially hidden */
+  padding-left: 20px;
+}
+
+.submenu li {
+  padding: 8px;
+}
+
+.submenu li a {
+  font-size: 16px;
+}
+
+/* Hover effect for submenu links */
+.submenu li a:hover {
+  background-color: #777;
 }
