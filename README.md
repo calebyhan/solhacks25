@@ -2,6 +2,8 @@
 
 Caleb Han, Mason Mines, Nikolaos Philippakos, and Yewon Song.
 
+[Devpost](https://devpost.com/software/beacon-zabr5u)
+
 ## Inspiration
 With the arrival of the Trump administration in 2025, immigration laws have become significantly more aggressive, and ICE activity remains clouded by speculation—ranging from claims of widespread arrests to a significant lack of verifiable evidence. We were struck by the shortage of publicly available data on recent ICE operations. Existing trackers, while valuable (with some of the best linked below), often struggle with limitations in recentness, accuracy, or scale. 
 
