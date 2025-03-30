@@ -20,13 +20,13 @@ def resources():
     return render_template('resources.html')
 
 
-@app.route('/icefreezone')
-def icefreezone():
-    return render_template('icefreezone.html')
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
-@app.route('/gov_rep_template')
-def gov_rep_template():
-    return render_template('gov_rep_template.html')
+@app.route('/rights')
+def rights():
+    return render_template('rights.html')
 
 @app.route('/map')
 def map():
