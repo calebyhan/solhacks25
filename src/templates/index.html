@@ -3,16 +3,28 @@
 {% block title %}Beacon Home{% endblock %}
 
 {% block content %}
-    <header>
-        <h1>Welcome to Beacon</h1>
-    </header>
+    <div class="hero-container">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='images/biglogo.png') }}" alt="Beacon Logo" class="logo">
+        </div>
 
-    <div class="container">
-        <p>Explore our features and reports:</p>
-        <ul>
-            <li><a href="{{ url_for('report') }}">Go to Report</a></li>
-            <li><a href="{{ url_for('resources') }}">Explore Resources</a></li>
-            <li><a href="#">Contact Us</a></li>
-        </ul>
+        <div class="text-box">
+            <p>Shining a light on Justice - Alerting and protecting innocent lives one by one</p>
+        </div>
+
+        <div class="info-row">
+            <div class="info-box">
+                <h3>Resource 1</h3>
+                <p>Description of the first resource.</p>
+            </div>
+            <div class="info-box">
+                <h3>Resource 2</h3>
+                <p>Description of the second resource.</p>
+            </div>
+            <div class="info-box">
+                <h3>Resource 3</h3>
+                <p>Description of the third resource.</p>
+            </div>
+        </div>
     </div>
 {% endblock %}
