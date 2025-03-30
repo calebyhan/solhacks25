@@ -40,16 +40,15 @@ body {
 
 .title {
     background-color: #F7C988;
-    margin: 20px auto; /* Center horizontally */
-    padding: 20px 40px; /* Padding around the text */
+    margin: 20px auto;
+    padding: 20px 40px;
     font-size: 48px;
     color: white;
     font-weight: bold;
     text-shadow: #333 1px 1px 2px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-    
-    /* Center the div and text */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+
     width: 90%;
     text-align: center;
 }
@@ -134,15 +133,14 @@ body {
 
 .about-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    grid-template-rows: repeat(2, auto);  /* 2 rows */
-    gap: 20px; /* Space between grid items */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
     margin: 0 auto;
     padding: 20px;
-    max-width: 1200px; /* Limit the grid width */
+    max-width: 1200px;
 }
 
-/* Consistent content styling */
 .about-content {
     padding: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -150,7 +148,6 @@ body {
     text-align: center;
 }
 
-/* Alternate background colors */
 .about-1 {
     background: rgba(255, 220, 107, 0.28);
 }
@@ -158,3 +155,47 @@ body {
 .about-2 {
     background: rgba(247, 201, 136, 0.28);
 }
+
+/* rights */
+
+.rights-text {
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(255, 220, 107, 0.28);
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 32px;
+}
+
+.rights-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+.rights-item {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.rights1 {
+    background: #FFA424;
+}
+
+.rights2 {
+    background: #F7C988;
+}
+
+
