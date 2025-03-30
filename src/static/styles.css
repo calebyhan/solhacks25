@@ -56,6 +56,63 @@ body {
 
 /* <==================> */
 
+/* home */
+
+.hero-container {
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.28), rgba(255, 220, 107, 0.68));
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 300px;
+    height: auto;
+}
+
+/* Text box below logo */
+.text-box {
+    background-color: #FFA424;
+    margin-top: 20px;
+    font-size: 18px;
+    color: white;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* Three text boxes in a row */
+.info-row {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+.info-box {
+    background-color: #FFDC6B; /* Adjust background color if needed */
+    padding: 20px;
+    width: 30%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 10px 0;
+}
+
+.info-box h3 {
+    font-size: 24px;
+    color: #333;
+}
+
+.info-box p {
+    font-size: 16px;
+    color: #555;
+}
+
 /* map */
 
 #map {
