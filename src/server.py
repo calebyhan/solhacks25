@@ -2,7 +2,7 @@ from flask import Flask, render_template, jsonify, redirect, request, session
 import os
 from dotenv import load_dotenv
 
-import utils
+from src import utils
 
 load_dotenv()
 app = Flask(__name__)
