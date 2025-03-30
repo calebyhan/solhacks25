@@ -3,55 +3,68 @@
 {% block title %}Resource Page{% endblock %}
 
 {% block content %}
-    <h1>Welcome to the Beacon Application</h1>
-    <p>This is the home page content.</p>
-    <ul>General Resources:
-        <li><a href="https://www.immigrantdefenseproject.org/know-your-rights-with-ice/">Your rights with ICE</a></li>
-        <li><a href="https://locator.ice.gov/odls/#/search">Official tool for finding individuals detained by ICE</a></li>
-        <li><a href="https://cis.org/Jacobs/History-Sensitive-Areas-Policies-and-What-Place-Now">Summary of the ICE's current operational guidelines</a></li>
-        <li><a href="https://immigrantjustice.org/know-your-rights/ice-encounter">Summary of the rights formally guaranteed to any person found within the United States</a></a></li>
-    </ul>
-    <ul>Legal Resources:
-        <li><a href="https://www.aila.org/">American Immigration Lawyers Association</a></li>
-        <li><a href="https://www.ilrc.org/">Immigrant Legal Resource Center (ILRC)</a></li>
-        <li><a href="https://nipnlg.org/">National Immigration Project of the National Lawyers Guild (NIPNLG)</a></li>
-        <li><a href="https://www.immigrantdefenseproject.org/">Immigrant Defense Project (IDP)</a></li>
-        <li><a href="https://www.raicestexas.org/">RAICES (Refugee and Immigrant Center for Education and Legal Services)</a></li>
-        <li><a href="https://familiesforfreedom.org/">Families for Freedom (FFF)</a></li>
-        <li><a href="https://www.aclu.org/issues/immigrants-rights">American Civil Liberties Union (ACLU)</a></li>
-    </ul>
-    <ul>Financial Resources:
-        <li><a href="https://www.freedomforimmigrants.org/national-bond-fund">Freedom for Immigrants' National Immigration Detention Bond Fund</a></li>
-        <li><a href="https://legalaidnyc.org/">The Legal Aid Society</a></li>
-        <li><a href="https://unitedwedream.org/">United We Dream (UWD)</a></li>
-        <li><a href="https://www.nilc.org/">The Immigrant Fund (NILC)</a></li>
-    </ul>
-    <ul>Fundraising Platforms:
-        <li><a href="https://www.gofundme.com/">GoFundMe</a></li>
-        <li><a href="https://www.crowdjustice.com/">CrowdJustice</a></li>
-    </ul>
-    <ul>Mental Health Resources for Detainees:
-        <li><a href="https://ticnutah.org/">Trauma-Informed Care (TIC) Network</a></li>
-        <li><a href="https://aipinc.org/our-work/community-based-mental-health/refugee-and-immigrant-trauma/">Alliance for Inclusion and Prevention (AIP)</a></li>
-    </ul>
-    <ul>Mental Health Resources for Families:
-        <li><a href="https://alotrolado.org/">Al Otro Lado</a></li>
-        <li><a href="https://www.raicestexas.org/social">RAICES</a></li>
-    </ul>
-    <ul>Advocacy Groups:
-        <li><a href="https://www.lahuelga.com/">Movimiento Cosecha</a></li>
-        <li><a href="https://www.americanprogress.org/">Center for American Progress (CAP)</a></li>
-        <li><a href="https://www.aclu.org/">American Civil Liberties Union (ACLU)</a></li>
-        <li><a href="https://www.freedomforimmigrants.org/">Freedom for Immigrants</a></li>
-        <li><a href="https://familiesforfreedom.org/">Families for Freedom (FFF)</a></li>
-        <li><a href="https://unitedwedream.org/">United We Dream (UWD)</a></li>
-        <li><a href="https://www.raicestexas.org/">Refugee and Immigrant Center for Education and Legal Services (RAICES)</a></li>
-        <li><a href="https://ndlon.org/">The National Day Laborer Organizing Network (NDLON)</a></li>
-    </ul>
-    <ul>Reliable Crisis Hotlines:
-        <li><a>Crisis Text Line: text "HELLO" to 741741</a></li>
-        <li><a>National Suicide Prevention Lifeline: 988</a></li>
-    </ul>
-    <a href="{{ url_for('static', filename='images/eroFieldOffices.pdf') }}" download>Download map of ICE offices</a>
-    <iframe src="{{ url_for('static', filename='images/eroFieldOffices.pdf') }}" alt="test" style="width: 100%; height: 1200px;"></iframe>
+<div class="title">
+    <p>Resources</p>
+</div>
+
+<div class="resource-container">
+
+    <!-- General Resources -->
+    <div class="resource-section">
+        <h2>General Resources</h2>
+        <ul>
+            <li><a href="https://www.immigrantdefenseproject.org/know-your-rights-with-ice/">Your rights with ICE</a></li>
+            <li><a href="https://locator.ice.gov/odls/#/search">ICE detainee locator</a></li>
+            <li><a href="https://cis.org/Jacobs/History-Sensitive-Areas-Policies-and-What-Place-Now">ICE's operational guidelines</a></li>
+            <li><a href="https://immigrantjustice.org/know-your-rights/ice-encounter">Know your rights in the U.S.</a></li>
+        </ul>
+    </div>
+
+    <!-- Legal Resources -->
+    <div class="resource-section">
+        <h2>Legal Resources</h2>
+        <ul>
+            <li><a href="https://www.aila.org/">American Immigration Lawyers Association</a></li>
+            <li><a href="https://www.ilrc.org/">Immigrant Legal Resource Center (ILRC)</a></li>
+            <li><a href="https://nipnlg.org/">National Immigration Project (NIPNLG)</a></li>
+            <li><a href="https://www.aclu.org/issues/immigrants-rights">ACLU</a></li>
+        </ul>
+    </div>
+
+    <!-- Financial Resources -->
+    <div class="resource-section">
+        <h2>Financial Resources</h2>
+        <ul>
+            <li><a href="https://www.freedomforimmigrants.org/national-bond-fund">Freedom for Immigrants' Bond Fund</a></li>
+            <li><a href="https://legalaidnyc.org/">The Legal Aid Society</a></li>
+            <li><a href="https://unitedwedream.org/">United We Dream (UWD)</a></li>
+        </ul>
+    </div>
+
+    <!-- Mental Health Resources -->
+    <div class="resource-section">
+        <h2>Mental Health Resources</h2>
+        <ul>
+            <li><a href="https://ticnutah.org/">Trauma-Informed Care (TIC) Network</a></li>
+            <li><a href="https://aipinc.org/our-work/community-based-mental-health/refugee-and-immigrant-trauma/">Alliance for Inclusion and Prevention (AIP)</a></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Centered Crisis Hotlines + PDF -->
+<div class="centered-section">
+    <div class="resource-section">
+        <h2>Reliable Crisis Hotlines</h2>
+        <ul>
+            <li>Crisis Text Line: <strong>Text "HELLO" to 741741</strong></li>
+            <li>National Suicide Prevention Lifeline: <strong>988</strong></li>
+        </ul>
+    </div>
+
+    <!-- PDF download and display -->
+    <div class="pdf-container">
+        <iframe src="{{ url_for('static', filename='images/eroFieldOffices.pdf') }}" alt="ICE offices map"></iframe>
+    </div>
+</div>
+
 {% endblock %}
