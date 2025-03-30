@@ -15,26 +15,20 @@
             padding: 0;
             overflow: hidden;
         }
-
-        /* Adjust the map to take full screen below the navbar */
-        #map {
-            position: absolute;
-            top: 100px;
-            left: 0;
-            width: 100%;
-            height: calc(100vh - 100px); /* Subtract the height of your navbar here */
-        }
-
-        /* Add styles to ensure the navbar stays on top */
-        .navbar {
-            position: fixed;
-            width: 100%;
-            z-index: 10;
-        }
     </style>
 
-    <div id="map"></div>
-    <input type="hidden" id="location" name="location" required>
+    <div class="title">
+        <p>Zones</p>
+    </div>
+
+    <div class="map-wrapper">
+        <div class="map-container">
+            <div class="map-content">
+                <div id="map"></div>
+                <input type="hidden" id="location" name="location" required>
+            </div>
+        </div>
+    </div>
 
     <script>
         const mapboxSecret = "{{ mapbox_secret }}";

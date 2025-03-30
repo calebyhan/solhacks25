@@ -29,7 +29,7 @@ def gov_rep_template():
     return render_template('gov_rep_template.html')
 
 @app.route('/map')
-def map_view():
+def map():
     mapbox_secret = os.getenv('MAPBOX_SECRET')
     location = session.get('location', None)
     return render_template('map.html', location=location, mapbox_secret=mapbox_secret)

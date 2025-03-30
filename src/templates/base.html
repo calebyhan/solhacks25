@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}<li><a href="{{ url_for('index') }}">Beacon</a></li>{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     {% block additional_requirements %}{% endblock %}
 </head>
 <body>
@@ -14,28 +15,16 @@
             </a>
         </div>
         <ul class="nav-links">
-            <li><a href="{{ url_for('index') }}">Home</a></li>
+            <li><a href="{{ url_for('map') }} ">Zones</a></li>
             <li><a href="{{ url_for('report') }}">Report</a></li>
             <li><a href="{{ url_for('icefreezone') }}">Ice-Free Zones</a></li>
             <li><a href="{{ url_for('resources') }}">Resources</a></li>
-            <li><a href="{{ url_for('gov_rep_template') }}">Contact a Represantative</a></li>
+            <li><a href="{{ url_for('gov_rep_template') }}">Contact a Representative</a></li>
         </ul>
-        <div class="menu-icon">☰</div>
     </nav>
 
     <div class="container">
         {% block content %}{% endblock %}
     </div>
-    <script>
-        window.addEventListener('scroll', function() {
-            const navbar = document.querySelector('.navbar');
-            if (window.scrollY > 50) {  // When you scroll more than 50px
-                navbar.classList.add('shrink');
-            } else {
-                navbar.classList.remove('shrink');
-            }
-        });
-    </script>
-    
 </body>
 </html>
